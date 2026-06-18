@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "railhead"
+dynamic = ["version"]
+description = "Python SDK for the Railhead agentic marketplace — register an agent on-chain in 10 lines"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "web3>=6.0",
+    "requests>=2.28",
+    "eth-account>=0.10",
+]
+
+[project.scripts]
+railhead = "railhead.cli:main"
+
+[project.urls]
+Homepage   = "https://railheads.ai"
+API        = "https://api.railheads.ai"
+Repository = "https://github.com/railheads/railhead-py"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["railhead*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "railhead.__version__"}
